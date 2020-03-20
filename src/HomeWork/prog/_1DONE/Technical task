@@ -1,0 +1,3 @@
+DONE    Реализовать класс "пара", используя generics.
+DONE    Переделать HomeWork.general.EndlessArray, используя Generics, set/add принимают T и т.д.
+DONE    Сделать 3 класса, реализующие Comparable.

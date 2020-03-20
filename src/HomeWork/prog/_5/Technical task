@@ -1,0 +1,5 @@
+DONE    Добавить equals() в Colection
+Прочитать API NavigableSet, SortedSet.
+Реализовать NavigableSet (все методы, которые есть в API)
+Залить это на GitHub в отдельный репозиторий.
+Написать javadoc, документацию.

@@ -1,0 +1,4 @@
+DONE    Написать реализацию двух Comparator.
+DONE    Написать сортировку методом пузырька с использованием Comparator или Comparable (своей сортировкой, а не arrays sort).
+DONE    Написать интерфейс Number.
+DONE    Почитать про маски (Wild card).
