@@ -105,6 +105,7 @@ public class CircleList3 {
     }
 
     public CircleList3[] gender(){
+//        TODO тестить, возможно не работает
         CircleList3[] a = new CircleList3[2];
         int maleCounter = 0;
         int femaleCounter = 0;
@@ -133,9 +134,11 @@ public class CircleList3 {
 
     public Participant last(int k){
         boolean[] arr = new boolean[size];
-        for(int j = 0; j<arr.length; j++){
+//Todo попробовать переписать
+        for(int j = 0; j < arr.length; j++){
             arr[j] = true;
         }
+
         int j = 0;
         int trueCounter = 0;
         int c = 0;
@@ -173,5 +176,7 @@ public class CircleList3 {
         }
 
     }
-
+//TODO Show
+//TODO Sort
+//TODO конструктор
 }
