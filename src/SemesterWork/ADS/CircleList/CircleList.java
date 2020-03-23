@@ -10,8 +10,7 @@ public class CircleList {
 //    Т.е. можно перезаписывать старые ненужные элементы
 //    (Вся идея кольцевых структур в экономии памяти)
 
-    //ToDo разобраться с модификаторами доступа
-    //ToDO file reader (конструктор)
+    //ToDo разобраться с модификаторами доступа (Карим)
     //ToDo show()
     // TODo sort()
 
@@ -20,11 +19,17 @@ public class CircleList {
         private boolean gender;
         private Participant next;
 
-        public Participant(String name, boolean gender, Participant next) {
+        public Participant(String name, String gen, Participant next) {
             this.name = name;
-            this.gender = gender;
-            this.next = next;
+            this.gender = gen.equals("male");
+            this.next = next;//Todo разузнать, не нарушает ли это принципа SingleResponsibilities? (+относится ли это к бизнес-логике)
         }
+
+         public Participant(boolean gen, String name, Participant next) {
+             this.name = name;
+             this.gender = gen;
+             this.next = next;
+         }
 
         public Participant(Participant otherP){
             this.name = otherP.name;
@@ -49,24 +54,46 @@ public class CircleList {
 
     // Fields
     private Participant head;
+     private Participant tail;
     private int size;
 
     //Constructors
-    public CircleList(String headName, boolean gender){
-        this.head = new Participant(headName, gender, null);
-    }
-//Todo  public CircleList(Что-то с файлами и считыванием){}
-
+//Вроде готово
+//   Todo протестировать на show и на двух файлах, которые залиты в этот пакет
+//    Todo добавить считывание с файла по относительному пути
     public CircleList(String filename) throws FileNotFoundException {
 
-//        String filename = "/Users/askar/Desktop/File";
         File input = new File(filename);
-
         Scanner scanner = new Scanner(input);
 
-        while (scanner.hasNextLine()){
-            System.out.println(scanner.next());
+        if(scanner.next().equals("male") || scanner.next().equals("female")){
+
+            this.head = new Participant(scanner.next().equals("male"), scanner.next(), null);
+            Participant buf = this.head;
+            this.size = 1;
+
+            while (scanner.hasNext()){
+                buf.setNext(new Participant(scanner.next().equals("male"), scanner.next(), null));
+                buf = buf.getNext();
+                this.size++;
+            }
+            buf.setNext(this.head);
+            this.tail = buf;
+        }else{
+
+            this.head = new Participant(scanner.next(), scanner.next(), null);
+            Participant buf = this.head;
+            this.size = 1;
+
+            while (scanner.hasNext()){
+                buf.setNext(new Participant(scanner.next(), scanner.next(),null));
+                buf = buf.getNext();
+                this.size++;
+            }
+            buf.setNext(this.head);
+            this.tail = buf;
         }
+        scanner.close();
     }
 
     private void calculateSize(){
@@ -77,65 +104,66 @@ public class CircleList {
         }
     }
 
-    //Methods
-//    public void insert(String name, char gender){
-//        Participant buff = new Participant(name, gender, this.head);
-////Fixme Пофиксить
-//        size++;
-//    }
-//
-//
-//    //throws NoSuckelement exception
-//    public void delete(String name, String gender){
-//        Participant buff = head;
-//        int c =0;
-//        while(! (name.equals(buff.name) && gender.equals(buff.gender))){
-//            buff = buff.getNext();
-//            c++;
-//            if (c == this.size()) {
-//                throw new NoSuchElementException();
-//            }
-//        }
-//        buff.getPrev().setNext(buff.getNext());
-//        buff.getNext().setPrev(buff.getPrev());
-//        size--;
-//    }
-//
-//    public int size(){
-//        return  size;
-//    }
+//    Methods
+    public void insert(String name, String gender){
+        Participant buff = new Participant(name, gender, this.head);
+        this.tail = buff;
+        size++;
+    }
 
-//    public CircleList[] gender(){
-////        TODO тестить, возможно не работает
-//        CircleList[] a = new CircleList[2];
-//        int maleCounter = 0;
-//        int femaleCounter = 0;
-//        Participant buff = head;
-//        // НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
-//        a[0].head = new Participant("a",'a',null,null);
-//        a[1].head = new Participant("a",'a',null,null);
-//
-//        for(int i = 1; i <= this.size; i++){
-//            if (buff.getGender() == 'F') {
-//                a[0].insert(buff.name,buff.gender);
-//            } else{
-//                a[1].insert(buff.name,buff.gender);
-//            }
-//
-//            buff = buff.getNext();
-//        }
-//
-//        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
-//        a[0].head = a[0].head.getNext();
-//        a[1].head = a[1].head.getNext();
-//
-//        return a;
-//
-//    }
+
+    //throws NoSuckelement exception
+    public void delete(String name, String gender){//TOdo поправить
+        Participant buff = head;
+        int c =0;
+        while(! (name.equals(buff.name) && gender.equals(buff.gender))){
+            buff = buff.getNext();
+            c++;
+            if (c == this.size()) {
+                throw new NoSuchElementException();
+            }
+        }
+        buff.getPrev().setNext(buff.getNext());
+        buff.getNext().setPrev(buff.getPrev());
+        size--;
+    }
+
+    public int size(){
+        return  size;
+    }
+
+    public CircleList[] gender(){
+       //Todo поправить, чтобы работало   +
+//        TODO тестить, возможно не работает
+        CircleList[] a = new CircleList[2];
+        int maleCounter = 0;
+        int femaleCounter = 0;
+        Participant buff = head;
+        // НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
+        a[0].head = new Participant("a",'a',null,null);
+        a[1].head = new Participant("a",'a',null,null);
+
+        for(int i = 1; i <= this.size; i++){
+            if (buff.getGender() == 'F') {
+                a[0].insert(buff.name,buff.gender);
+            } else{
+                a[1].insert(buff.name,buff.gender);
+            }
+
+            buff = buff.getNext();
+        }
+
+        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
+        a[0].head = a[0].head.getNext();
+        a[1].head = a[1].head.getNext();
+
+        return a;
+
+    }
 
     public Participant last(int k){
         boolean[] arr = new boolean[size];
-//Todo попробовать переписать
+//Todo написать свою реализацию
         for(int j = 0; j < arr.length; j++){
             arr[j] = true;
         }
@@ -175,9 +203,5 @@ public class CircleList {
 
             c = 0;
         }
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        CircleList c1 = new CircleList("/Users/askar/Desktop/File.txt");
     }
 }
