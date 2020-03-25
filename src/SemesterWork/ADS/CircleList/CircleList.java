@@ -105,7 +105,7 @@ public class CircleList {
         }
     }
 
-    private void calculateSize(){
+    private void calculateSize(){ //Мб делитнуть
         Participant buff = head;
         int size = 1;
         while(!buff.getNext().equals(this.head)){
@@ -122,53 +122,53 @@ public class CircleList {
 
 
     //throws NoSuckelement exception
-//    public void delete(String name){//TOdo поправить
-//        Participant buff = head;
-//        int c =0;
-//        while(! (name.equals(buff.name) && gender.equals(buff.gender))){
-//            buff = buff.getNext();
-//            c++;
-//            if (c == this.size()) {
-//                throw new NoSuchElementException();
-//            }
-//        }
-//        buff.getPrev().setNext(buff.getNext());
-//        buff.getNext().setPrev(buff.getPrev());
-//        size--;
-//    }
+    public void delete(String name){//TOdo поправить
+        Participant buff = head;
+        int c =0;
+        while(! (name.equals(buff.name) && gender.equals(buff.gender))){
+            buff = buff.getNext();
+            c++;
+            if (c == this.size()) {
+                throw new NoSuchElementException();
+            }
+        }
+        buff.getPrev().setNext(buff.getNext());
+        buff.getNext().setPrev(buff.getPrev());
+        size--;
+    }
 
     public int size(){
         return  size;
     }
 
-//    public CircleList[] gender(){
-//       //Todo поправить, чтобы работало   +
-////        TODO тестить, возможно не работает
-//        CircleList[] a = new CircleList[2];
-//        int maleCounter = 0;
-//        int femaleCounter = 0;
-//        Participant buff = head;
-//        // НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
-//        a[0].head = new Participant("a",'a',null,null);
-//        a[1].head = new Participant("a",'a',null,null);
-//
-//        for(int i = 1; i <= this.size; i++){
-//            if (buff.getGender() == 'F') {
-//                a[0].insert(buff.name,buff.gender);
-//            } else{
-//                a[1].insert(buff.name,buff.gender);
-//            }
-//
-//            buff = buff.getNext();
-//        }
-//
-//        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
-//        a[0].head = a[0].head.getNext();
-//        a[1].head = a[1].head.getNext();
-//
-//        return a;
-//
-//    }
+    public CircleList[] gender(){
+       //Todo поправить, чтобы работало   +
+//        TODO тестить, возможно не работает
+        CircleList[] a = new CircleList[2];
+        int maleCounter = 0;
+        int femaleCounter = 0;
+        Participant buff = head;
+        // НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
+        a[0].head = new Participant("a",'a',null,null);
+        a[1].head = new Participant("a",'a',null,null);
+
+        for(int i = 1; i <= this.size; i++){
+            if (buff.getGender() == 'F') {
+                a[0].insert(buff.name,buff.gender);
+            } else{
+                a[1].insert(buff.name,buff.gender);
+            }
+
+            buff = buff.getNext();
+        }
+
+        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
+        a[0].head = a[0].head.getNext();
+        a[1].head = a[1].head.getNext();
+
+        return a;
+
+    }
 
     public Participant last(int k){
         boolean[] arr = new boolean[size];
