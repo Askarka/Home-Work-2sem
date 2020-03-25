@@ -204,4 +204,8 @@ public class CircleList {
             c = 0;
         }
     }
+
+    public static void main(String[] args) {
+        CircleList a = new CircleList(File);
+    }
 }
