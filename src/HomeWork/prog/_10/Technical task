@@ -1,0 +1,3 @@
+Написать декоратор для студента (Student input/output stream) с методами writeStudent() и readStudent(),
+которые будут добавлять функционал записи и чтения студента.
+Сделать это в двух исполнениях: с использованием data и object input output stream.
