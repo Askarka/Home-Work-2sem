@@ -1,7 +1,10 @@
 package SemesterWork.ADS.CircleList;
 
+import sun.awt.geom.AreaOp;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -61,39 +64,45 @@ public class CircleList {
 //Вроде готово
 //   Todo протестировать на show и на двух файлах, которые залиты в этот пакет
 //    Todo добавить считывание с файла по относительному пути
-    public CircleList(String filename) throws FileNotFoundException {
+    public CircleList(String filename) {
 
-        File input = new File(filename);
-        Scanner scanner = new Scanner(input);
+        try {
+            File input = new File(filename);
+            Scanner scanner = new Scanner(input);
 
-        if(scanner.next().equals("male") || scanner.next().equals("female")){
 
-            this.head = new Participant(scanner.next().equals("male"), scanner.next(), null);
-            Participant buf = this.head;
-            this.size = 1;
+            if(scanner.next().equals("male") || scanner.next().equals("female")){
 
-            while (scanner.hasNext()){
-                buf.setNext(new Participant(scanner.next().equals("male"), scanner.next(), null));
-                buf = buf.getNext();
-                this.size++;
+                this.head = new Participant(scanner.next().equals("male"), scanner.next(), null);
+                Participant buf = this.head;
+                this.size = 1;
+
+                while (scanner.hasNext()){
+                    buf.setNext(new Participant(scanner.next().equals("male"), scanner.next(), null));
+                    buf = buf.getNext();
+                    this.size++;
+                }
+                buf.setNext(this.head);
+                this.tail = buf;
+            }else{
+
+                this.head = new Participant(scanner.next(), scanner.next(), null);
+                Participant buf = this.head;
+                this.size = 1;
+
+                while (scanner.hasNext()){
+                    buf.setNext(new Participant(scanner.next(), scanner.next(),null));
+                    buf = buf.getNext();
+                    this.size++;
+                }
+                buf.setNext(this.head);
+                this.tail = buf;
             }
-            buf.setNext(this.head);
-            this.tail = buf;
-        }else{
 
-            this.head = new Participant(scanner.next(), scanner.next(), null);
-            Participant buf = this.head;
-            this.size = 1;
-
-            while (scanner.hasNext()){
-                buf.setNext(new Participant(scanner.next(), scanner.next(),null));
-                buf = buf.getNext();
-                this.size++;
-            }
-            buf.setNext(this.head);
-            this.tail = buf;
+            scanner.close();
+        }catch (FileNotFoundException e){
+        System.out.println("Exeption!");
         }
-        scanner.close();
     }
 
     private void calculateSize(){
@@ -113,53 +122,53 @@ public class CircleList {
 
 
     //throws NoSuckelement exception
-    public void delete(String name, String gender){//TOdo поправить
-        Participant buff = head;
-        int c =0;
-        while(! (name.equals(buff.name) && gender.equals(buff.gender))){
-            buff = buff.getNext();
-            c++;
-            if (c == this.size()) {
-                throw new NoSuchElementException();
-            }
-        }
-        buff.getPrev().setNext(buff.getNext());
-        buff.getNext().setPrev(buff.getPrev());
-        size--;
-    }
+//    public void delete(String name){//TOdo поправить
+//        Participant buff = head;
+//        int c =0;
+//        while(! (name.equals(buff.name) && gender.equals(buff.gender))){
+//            buff = buff.getNext();
+//            c++;
+//            if (c == this.size()) {
+//                throw new NoSuchElementException();
+//            }
+//        }
+//        buff.getPrev().setNext(buff.getNext());
+//        buff.getNext().setPrev(buff.getPrev());
+//        size--;
+//    }
 
     public int size(){
         return  size;
     }
 
-    public CircleList[] gender(){
-       //Todo поправить, чтобы работало   +
-//        TODO тестить, возможно не работает
-        CircleList[] a = new CircleList[2];
-        int maleCounter = 0;
-        int femaleCounter = 0;
-        Participant buff = head;
-        // НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
-        a[0].head = new Participant("a",'a',null,null);
-        a[1].head = new Participant("a",'a',null,null);
-
-        for(int i = 1; i <= this.size; i++){
-            if (buff.getGender() == 'F') {
-                a[0].insert(buff.name,buff.gender);
-            } else{
-                a[1].insert(buff.name,buff.gender);
-            }
-
-            buff = buff.getNext();
-        }
-
-        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
-        a[0].head = a[0].head.getNext();
-        a[1].head = a[1].head.getNext();
-
-        return a;
-
-    }
+//    public CircleList[] gender(){
+//       //Todo поправить, чтобы работало   +
+////        TODO тестить, возможно не работает
+//        CircleList[] a = new CircleList[2];
+//        int maleCounter = 0;
+//        int femaleCounter = 0;
+//        Participant buff = head;
+//        // НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
+//        a[0].head = new Participant("a",'a',null,null);
+//        a[1].head = new Participant("a",'a',null,null);
+//
+//        for(int i = 1; i <= this.size; i++){
+//            if (buff.getGender() == 'F') {
+//                a[0].insert(buff.name,buff.gender);
+//            } else{
+//                a[1].insert(buff.name,buff.gender);
+//            }
+//
+//            buff = buff.getNext();
+//        }
+//
+//        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
+//        a[0].head = a[0].head.getNext();
+//        a[1].head = a[1].head.getNext();
+//
+//        return a;
+//
+//    }
 
     public Participant last(int k){
         boolean[] arr = new boolean[size];
@@ -192,7 +201,6 @@ public class CircleList {
                     }
                     return buff;
                 }
-
             }
 
             trueCounter++;
@@ -205,7 +213,9 @@ public class CircleList {
         }
     }
 
-    public static void main(String[] args) {
-        CircleList a = new CircleList(File);
+    public static void main(String[] args) throws FileNotFoundException {
+
+
+//        CircleList a = new CircleList("test1.txt");  Это для проверки работы конструктора
     }
 }
