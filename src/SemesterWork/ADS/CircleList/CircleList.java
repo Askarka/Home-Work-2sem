@@ -70,7 +70,7 @@ public class CircleList {
             File input = new File(filename);
             Scanner scanner = new Scanner(input);
 
-
+//TODo вынести scanner.next() в отдельную переменную, так как каждый раз при сравнении на equals мы теряем элемент
             if(scanner.next().equals("male") || scanner.next().equals("female")){
 
                 this.head = new Participant(scanner.next().equals("male"), scanner.next(), null);
