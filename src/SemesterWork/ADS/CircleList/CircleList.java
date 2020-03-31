@@ -11,7 +11,6 @@ public class CircleList {
 //    Т.е. можно перезаписывать старые ненужные элементы
 //    Вся идея кольцевых структур в экономии памяти
 
-    //ToDo разобраться с модификаторами доступа (Карим)
     // TODo sort()
 
      private class Participant{
@@ -82,7 +81,6 @@ public class CircleList {
                     this.size++;
                 }
                 this.tail = buf;
-                this.tail.setNext(this.head);
             }else{
 
                 this.head = new Participant(buff, scanner.next(), null);
@@ -95,12 +93,12 @@ public class CircleList {
                     this.size++;
                 }
                 this.tail = buf;
-                this.tail.setNext(this.head);
             }
+            this.tail.setNext(this.head);
 
             scanner.close();
         }catch (FileNotFoundException e){
-            e.getMessage(); //ToDo проверить, работает ли в идее.
+            e.getMessage();
         }
     }
 
@@ -191,51 +189,8 @@ public class CircleList {
     }
     
     public void sort(String name){}
-    
-    public Participant lastK(int k){
-        boolean[] arr = new boolean[size];
-        for(int j = 0; j < arr.length; j++){
-            arr[j] = true;
-        }
 
-        int j = 0;
-        int trueCounter = 0;
-        int c = 0;
-
-        while (true) {
-            int buffer = j;
-
-            if (j+1 == arr.length){
-                j = 0;
-            } else { j++; }
-
-            while(! arr[j]){
-                c++;
-                j++;
-                if (j == arr.length){
-                    j = 0;
-                }
-                if(c == arr.length-1) {
-                    Participant buff = head;
-                    for(int i = 0; i<buffer; i++){
-                        buff = buff.getNext();
-                    }
-                    return buff;
-                }
-            }
-
-            trueCounter++;
-            
-            if(trueCounter == k){
-                arr[j] = false;
-                trueCounter = 0;
-            }
-
-            c = 0;
-        }
-    }
-
-    public Participant lastA(int k){
+    public Participant last(int k){
         int resNum;
         int res = 0;
 
@@ -271,12 +226,12 @@ public class CircleList {
         result[1] = f;
         return result;
     }
-    
-     public int size(){
+
+    public int size(){
         return  size;
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
 
         CircleList a = new CircleList("test1.txt"); //Для проверки конструктора
