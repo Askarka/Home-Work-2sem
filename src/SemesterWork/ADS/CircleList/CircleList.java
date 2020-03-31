@@ -221,7 +221,7 @@ public class CircleList {
     }
 
 
-//    public CircleList[] gender(){ //TODO тестить
+//    public CircleList[] gender(){
 //        CircleList[] a = new CircleList[2];
 //        int maleCounter = 0;
 //        int femaleCounter = 0;
@@ -290,8 +290,20 @@ public class CircleList {
         }
     }
 
-    public Participant lastA(int k){ //TODO написать свою реализацию метода last
-        return null;
+    public Participant lastA(int k){
+        int resNum;
+        int res = 0;
+
+            for (int i=1; i<= size; ++i) {
+                res = (res + k) % i;
+            }
+            resNum = res + 1;
+
+        Participant buff = this.head;
+        for(int i = 0; i < resNum; i++){
+            buff = buff.next;
+        }
+        return buff;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -315,5 +327,8 @@ public class CircleList {
         mas[1].show();
 
 //        TODO доделать тесты всего оставшегося
+        //сделаны тесты : конструктора, show, insert (both), genderA.
+        //TODO Карим, можешь, пожалуйста, написать, что осталось протестироватьё
+        //TODO осталось сделать тесты:
     }
 }
