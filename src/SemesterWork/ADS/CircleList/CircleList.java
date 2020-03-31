@@ -190,7 +190,7 @@ public class CircleList {
         size--;
     }
     
-    public vois sort(String name){}
+    public void sort(String name){}
     
     public Participant lastK(int k){
         boolean[] arr = new boolean[size];
