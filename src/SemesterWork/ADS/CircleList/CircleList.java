@@ -2,7 +2,6 @@ package SemesterWork.ADS.CircleList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ public class CircleList {
         public Participant(String name, String gen, Participant next) {
             this.name = name;
             this.gender = gen.equals("male");
-            this.next = next;//Todo разузнать, не нарушает ли это принципа SingleResponsibilities? (+относится ли это к бизнес-логике)
+            this.next = next;
         }
 
          public Participant(boolean gen, String name, Participant next) {
@@ -42,8 +41,7 @@ public class CircleList {
             this.gender = otherP.gender;
             this.next = otherP.next;
         }
-
-        // equals ЕГО СТОИТ ДЕЛАТЬ ТОЛЬКО ЕСЛИ МЫ В СОРТЕ И ДЕЛИТЕ ХОТИМ СРАВНИВАТЬ НЕ СТРИНГИ А ПРОСТО У БУФЕРА ВЫЗЫВАТЬ EQUALS
+         
         public String getName(){
             return this.name;
         }
@@ -65,7 +63,7 @@ public class CircleList {
 
     //Constructors
     public CircleList(String filename) {
-
+        
         try {
             File input = new File(filename);
             Scanner scanner = new Scanner(input);
@@ -102,7 +100,7 @@ public class CircleList {
 
             scanner.close();
         }catch (FileNotFoundException e){
-        System.out.println("Exeption!");
+            e.getMessage(); //ToDo проверить, работает ли в идее.
         }
     }
 
@@ -122,7 +120,7 @@ public class CircleList {
         int spaceNum = buff.name.length();
 
         for(int i = 0; i < size-1; i++){
-            if(buff.next.name.length() > buff.name.length()){
+            if(buff.next.name.length() > buff.name.length()){       
                 spaceNum = buff.next.name.length();
             }
             buff = buff.next;
@@ -139,8 +137,9 @@ public class CircleList {
             buff = buff.next;
         }
     }
-
-    public void insert1(String name, String gender){ //TODO мб делитнуть, чек следующий метод
+    
+   
+    public void insert(String name, String gender){
 
         Participant buff = new Participant(name, gender, this.head);
 
@@ -157,7 +156,7 @@ public class CircleList {
         size++;
     }
 
-    public void insert2(Participant p){ //вроде такой требовалось по тз
+    public void insertForParticipant(Participant p){
         Participant buff = new Participant(p);
 
         if(this.head == null){
@@ -175,9 +174,9 @@ public class CircleList {
     }
 
     public void delete(String name){
-
+        
         Participant buff = head;
-        int c =0;
+        int c = 0;
 
         while(!name.equals(buff.next.name)){
             if (c == this.size()) {
@@ -190,60 +189,9 @@ public class CircleList {
         buff.setNext(buff.next.next);
         size--;
     }
-
-    public int size(){
-        return  size;
-    }
-
-    public CircleList[] gender(){
-        CircleList m = new CircleList();
-        CircleList f = new CircleList();
-
-        Participant buff = this.head;
-
-        for(int i = 0; i < this.size; i++){
-            if(buff.gender){
-                m.insert1(buff.name, "male");
-            }else{
-                f.insert1(buff.name, "female");
-            }
-            buff = buff.next;
-        }
-
-        CircleList[] result = new CircleList[2];
-        result[0] = m;
-        result[1] = f;
-        return result;
-    }
-
-
-//    public CircleList[] gender(){
-//        CircleList[] a = new CircleList[2];
-//        int maleCounter = 0;
-//        int femaleCounter = 0;
-//        Participant buff = head;// НУЖНЫ ДВЕ ПУСТЫЕ ГОЛОВЫ, тк мы не знаем, кто в начале нашего кольцевого листа
-//
-//        a[0].head = new Participant("a",'a',null,null);
-//        a[1].head = new Participant("a",'a',null,null);
-//
-//        for(int i = 1; i <= this.size; i++){
-//            if (buff.getGender() == 'F') {
-//                a[0].insert(buff.name,buff.gender);
-//            } else{
-//                a[1].insert(buff.name,buff.gender);
-//            }
-//
-//            buff = buff.getNext();
-//        }
-//
-//        // КАК ДУМАЕШЬ, СРАБОТАЕТ ЛИ ЭТО? Тип нужно две болванки в начале убрать, тк они пустые и не важны для наших двух списков
-//        a[0].head = a[0].head.getNext();
-//        a[1].head = a[1].head.getNext();
-//
-//        return a;
-//
-//    }
-
+    
+    public vois sort(String name){}
+    
     public Participant lastK(int k){
         boolean[] arr = new boolean[size];
         for(int j = 0; j < arr.length; j++){
@@ -277,6 +225,7 @@ public class CircleList {
             }
 
             trueCounter++;
+            
             if(trueCounter == k){
                 arr[j] = false;
                 trueCounter = 0;
@@ -290,16 +239,41 @@ public class CircleList {
         int resNum;
         int res = 0;
 
-            for (int i=1; i<= size; ++i) {
-                res = (res + k) % i;
-            }
-            resNum = res + 1;
+        for (int i=1; i<= size; ++i) {
+            res = (res + k) % i;
+        }
+        resNum = res + 1;
 
         Participant buff = this.head;
         for(int i = 0; i < resNum; i++){
             buff = buff.next;
         }
         return buff;
+    }
+    
+    public CircleList[] gender(){
+        CircleList m = new CircleList();
+        CircleList f = new CircleList();
+
+        Participant buff = this.head;
+
+        for(int i = 0; i < this.size; i++){
+            if(buff.gender){
+                m.insert(buff.name, "male");
+            }else{
+                f.insert(buff.name, "female");
+            }
+            buff = buff.next;
+        }
+
+        CircleList[] result = new CircleList[2];
+        result[0] = m;
+        result[1] = f;
+        return result;
+    }
+    
+     public int size(){
+        return  size;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
