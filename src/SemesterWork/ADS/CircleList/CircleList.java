@@ -205,6 +205,29 @@ public class CircleList {
     }
     
     public void sort(String name){}
+    
+    //ToDo чтобы принимал имя, а потом сдвигал бошку до этого имени
+    public CircleList sortWithAddArray(CircleList data){
+        int length = data.size();
+        String[] dataString = new String[length];
+        Participant buff = data.head;
+
+        for(int  i = 0; i< length; i++){
+            dataString[i] = buff.getName() + ((buff.gender) ? " male" : " female");
+            buff = buff.getNext();
+        }
+
+        Arrays.sort(dataString);
+
+        String[] partcipantBuff = new String[2];
+        CircleList newData = new CircleList();
+
+        for(int i = 0; i < length; i++){
+            partcipantBuff = dataString[i].split(" ");
+            newData.insert(partcipantBuff[0], partcipantBuff[1]);
+        }
+        return newData;
+    }
 
     public Participant last(int k){
         int resNum;
