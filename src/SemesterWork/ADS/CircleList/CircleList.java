@@ -13,7 +13,7 @@ public class CircleList {
 
     // TODo sort()
 
-     private class Participant{
+     private class Participant implements Comparable<Participant>{
         private String name;
         private boolean gender;
         private Participant next;
@@ -24,23 +24,23 @@ public class CircleList {
             this.next = next;
         }
 
-         public Participant(boolean gen, String name, Participant next) {
-             this.name = name;
-             this.gender = gen;
-             this.next = next;
-         }
+        public Participant(boolean gen, String name, Participant next) {
+            this.name = name;
+            this.gender = gen;
+            this.next = next;
+        }
 
-         public Participant(String name, boolean gender) {
-             this.name = name;
-             this.gender = gender;
-         }
+        public Participant(String name, boolean gender) {
+            this.name = name;
+            this.gender = gender;
+        }
 
-         public Participant(Participant otherP){
+        public Participant(Participant otherP){
             this.name = otherP.name;
             this.gender = otherP.gender;
             this.next = otherP.next;
         }
-         
+
         public String getName(){
             return this.name;
         }
@@ -52,6 +52,22 @@ public class CircleList {
         }
         public Participant getNext(){
             return this.next;
+        }
+
+        @Override
+        public int compareTo(Participant otherP){
+
+            if (this.getName().equals(otherP.getName())) {
+                if(this.getGender() == otherP.getGender()){
+                    return 0;
+                } else if(this.getGender() == false) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+
+            return this.getName().compareTo(otherP.getName());
         }
     }
 
