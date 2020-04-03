@@ -18,44 +18,44 @@ public class CircleList {
         private boolean gender;
         private Participant next;
 
-        public Participant(String name, String gen, Participant next) {
+        public Participant(String name, String gen, Participant next) {    // T = O(1)    M = O(1)
             this.name = name;
             this.gender = gen.equals("male");
             this.next = next;
         }
 
-        public Participant(boolean gen, String name, Participant next) {
+        public Participant(boolean gen, String name, Participant next) {    // T = O(1)    M = O(1)
             this.name = name;
             this.gender = gen;
             this.next = next;
         }
 
-        public Participant(String name, boolean gender) {
+        public Participant(String name, boolean gender) {    // T = O(1)    M = O(1)
             this.name = name;
             this.gender = gender;
         }
 
-        public Participant(Participant otherP){
+        public Participant(Participant otherP){    // T = O(1)    M = O(1)
             this.name = otherP.name;
             this.gender = otherP.gender;
             this.next = otherP.next;
         }
 
-        public String getName(){
+        public String getName(){    // T = O(1)    M = O(1)
             return this.name;
         }
-        public boolean getGender(){
+        public boolean getGender(){    // T = O(1)    M = O(1)
             return this.gender;
         }
-        public void setNext(Participant next){
+        public void setNext(Participant next){    // T = O(1)    M = O(1)
             this.next = next;
         }
-        public Participant getNext(){
+        public Participant getNext(){    // T = O(1)    M = O(1)
             return this.next;
         }
 
         @Override
-        public int compareTo(Participant otherP){
+        public int compareTo(Participant otherP){    // T = O(1)    M = O(1)
 
             if (this.getName().equals(otherP.getName())) {
                 if(this.getGender() == otherP.getGender()){
@@ -77,7 +77,7 @@ public class CircleList {
      private int size;
 
     //Constructors
-    public CircleList(String filename) {
+    public CircleList(String filename) {    // T = O(n)    M = O(n)
         
         try {
             File input = new File(filename);
@@ -118,17 +118,17 @@ public class CircleList {
         }
     }
 
-    public CircleList(Participant head) {
+    public CircleList(Participant head) {    // T = O(1)    M = O(1)
         this.head = head;
         this.tail = head;
         this.size = 1;
     }
 
-    public CircleList() {
+    public CircleList() {    // T = O(1)    M = O(1)
     }
 
     //    Methods
-    public void show(){
+    public void show(){     // T = O(n)    M = O(1) 
         Participant buff = this.head;
 
         int spaceNum = buff.name.length();
@@ -153,7 +153,7 @@ public class CircleList {
     }
     
    
-    public void insert(String name, String gender){
+    public void insert(String name, String gender){    // T = O(1)    M = O(1)
 
         Participant buff = new Participant(name, gender, this.head);
 
@@ -170,7 +170,7 @@ public class CircleList {
         size++;
     }
 
-    public void insertForParticipant(Participant p){
+    public void insertForParticipant(Participant p){    // T = O(1)    M = O(1)
         Participant buff = new Participant(p);
 
         if(this.head == null){
@@ -187,7 +187,7 @@ public class CircleList {
         size++;
     }
 
-    public void delete(String name){
+    public void delete(String name){    // T = O(n+1) (???)    M = O(1)
         
         Participant buff = head;
         int c = 0;
@@ -229,7 +229,7 @@ public class CircleList {
         return newData;
     }
 
-    public Participant last(int k){
+    public Participant last(int k){    // T = O(n)    M = O(1)
         int resNum;
         int res = 0;
 
@@ -245,7 +245,7 @@ public class CircleList {
         return buff;
     }
     
-    public CircleList[] gender(){
+    public CircleList[] gender(){    // T = O(n)    M = O(n)
         CircleList m = new CircleList();
         CircleList f = new CircleList();
 
@@ -266,7 +266,7 @@ public class CircleList {
         return result;
     }
 
-    public int size(){
+    public int size(){    // T = O(1)    M = O(1)
         return  size;
     }
 
