@@ -1,0 +1,16 @@
+1972 kb
+
+Empty constructor take in average: 0 microseconds and 4 mb
+
+Constructor for 100 elements take in average: 687 microseconds and 13 mb
+
+Constructor for 500 elements take in average: 985 microseconds and 20 mb
+
+Constructor for 1000 elements take: 1118 microseconds and 29 mb
+
+last() for 100 elements take in average: 7873 nanoseconds and 30 mb
+
+last() for 500 elements take in average: 7529 nanoseconds and 30 mb
+
+last() for 1000 elements take in average: 12573 nanoseconds and 30 mb
+

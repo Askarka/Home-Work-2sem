@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Tester {
 
-    private static String[] specialStringArrayGenerator(int size){
+    public static String[] specialStringArrayGenerator(int size){
         String[] str = new String[size];
         char[] s = new char[10];
 
@@ -35,33 +35,145 @@ public class Tester {
     }
 
     public static void main(String[] args) throws IOException {
-//        CircleList a = new CircleList();
+
+        // Todo show 100 500 1000
+        // Todo insert
+        // Todo delete
+        // Todo sort 100 500 1000 разные сорты протестить
+
+        FileWriter fw = new FileWriter("results.txt");
+        long t0, t1, average = 0, usedBytes;
+        CircleList a;
+
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+
+        a = new CircleList("1000.txt");
+
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usedBytes;
+        fw.write( usedBytes/1024 + " kb" + "\n" + "\n");
+
+        // Constructors
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a = new CircleList();
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/1000/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "Empty constructor take in average: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a = new CircleList("100.txt");
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/1000/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "Constructor for 100 elements take in average: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a = new CircleList("500.txt");
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/1000/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "Constructor for 500 elements take in average: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a = new CircleList("1000.txt");
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/1000/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "Constructor for 1000 elements take: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+        // last() methods
+        a = new CircleList("100.txt");
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a.last(25);
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "last() for 100 elements take in average: "+ average + " nanoseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+        a = new CircleList("500.txt");
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a.last(125);
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "last() for 500 elements take in average: "+ average + " nanoseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+        a = new CircleList("1000.txt");
+        for(int i = 0; i < 100; i++){
+
+            t0 = System.nanoTime();
+            a.last(250);
+            t1 = System.nanoTime();
+            average+=(t1 - t0)/100;
+
+        }
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
+        fw.write( "last() for 1000 elements take in average: "+ average + " nanoseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        average=0;
+
+//        // insert() and delete()
+//        a = new CircleList("100.txt");
+//        long t2, t3, average1 = 0, average2 = 0;
+//        String name, gender;
 //
-//        long t0 = System.nanoTime();
-//        for(int i =0; i < 1000; i++){
-//            a.insert(i+". Participant",  (int) (Math.random()+1) + "");
+//        for(int i = 0; i < 100; i++){
+//            name = i+1+". Participant";
+//            gender = (Math.random() > 0.5) ? "male" : "female";
+//
+//            t0 = System.nanoTime();
+//            a.insert(name,gender);
+//            t1 = System.nanoTime();
+//            average1+=(t1 - t0)/100;
+//
+//            t2 = System.nanoTime();
+//            a.delete(name);
+//            t3 = System.nanoTime();
+//            average2+=(t1 - t0)/100;
 //        }
-//        long t1 = System.nanoTime();
-//        System.out.println((t1 - t0)/1000 + " microseconds");
-//        System.out.println();
 //
-//        t0 = System.nanoTime();
-//        System.out.println(a.last(15));
-//        t1 = System.nanoTime();
-//        System.out.println((t1 - t0)/1000 + " microseconds");
-//        System.out.println();
+//        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 ;
+//        fw.write( "insert() take in average: "+ average1 + " nanoseconds"+ " and " + usedBytes + " kb" + "\n" + "\n");
+//        fw.write( "delete() take in average: "+ average2 + " nanoseconds"+ " and " + usedBytes + " kb" + "\n" + "\n");
+
+        fw.close();
+
+        //        GENERATOR
+//        Tester.newData(Tester.specialStringArrayGenerator(1000));
+
 
         // это байты, я чекнул
-        System.out.println((int) (Runtime.getRuntime().maxMemory()/ Math.pow(2,20)) + " mb"); // количество свободной памяти, доступной JVM
-        System.out.println((int) (Runtime.getRuntime().totalMemory()/ Math.pow(2,20)) + " mb");  // количество памяти, которое юзает JVM
-
-        //GENERATOR
-        //Tester.newData(Tester.specialStringArrayGenerator(1000));
-
-
-
-//        FileReader fr = new FileReader( "sample2.txt" );
-//        fr.close();
+//        System.out.println((int) (Runtime.getRuntime().maxMemory()/ Math.pow(2,20)) + " mb"); // количество свободной памяти, доступной JVM
+//        System.out.println((int) (Runtime.getRuntime().totalMemory()/ Math.pow(2,20)) + " mb");  // количество памяти, которое юзает JVM
 
 
     }
