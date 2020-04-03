@@ -204,6 +204,19 @@ public class CircleList {
         size--;
     }
     
+    public void swap(Participant  p1, Participant p2){    // T = O(1)    M = O(1)
+        if ( p1==p2 || p1 == null || p2 == null ){
+            throw new IllegalArgumentException();
+        }
+
+        Participant buff = new Participant(p1);
+        p1.name = p2.name;
+        p1.gender = p2.gender;
+        p2.name = buff.name;
+        p2.gender = buff.gender;
+
+    }
+    
     public void sort(String name){}
     
     //ToDo чтобы принимал имя, а потом сдвигал бошку до этого имени
