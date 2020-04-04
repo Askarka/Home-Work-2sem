@@ -37,20 +37,21 @@ public class Tester {
     public static void main(String[] args) throws IOException {
 
         // Todo show 100 500 1000
-        // Todo insert
-        // Todo delete
+        // TODO insert()
+        // ToDo delete()
         // Todo sort 100 500 1000 разные сорты протестить
+
 
         FileWriter fw = new FileWriter("results.txt");
         long t0, t1, average = 0, usedBytes;
         CircleList a;
 
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
-
-        a = new CircleList("1000.txt");
-
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usedBytes;
-        fw.write( usedBytes/1024 + " kb" + "\n" + "\n");
+//        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+//
+//        a = new CircleList("1000.txt");
+//
+//        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usedBytes;
+//        fw.write( usedBytes/1024 + " kb" + "\n" + "\n");
 
         // Constructors
         for(int i = 0; i < 100; i++){
@@ -61,8 +62,8 @@ public class Tester {
             average+=(t1 - t0)/1000/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "Empty constructor take in average: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+
+        fw.write( "Empty constructor take in average: "+ average + " microseconds"+  "\n" + "\n");
         average=0;
 
         for(int i = 0; i < 100; i++){
@@ -73,8 +74,7 @@ public class Tester {
             average+=(t1 - t0)/1000/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "Constructor for 100 elements take in average: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        fw.write( "Constructor for 100 elements take in average: "+ average + " microseconds"+  "\n" + "\n");
         average=0;
 
         for(int i = 0; i < 100; i++){
@@ -85,8 +85,7 @@ public class Tester {
             average+=(t1 - t0)/1000/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "Constructor for 500 elements take in average: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        fw.write( "Constructor for 500 elements take in average: "+ average + " microseconds"+  "\n" + "\n");
         average=0;
 
         for(int i = 0; i < 100; i++){
@@ -97,8 +96,7 @@ public class Tester {
             average+=(t1 - t0)/1000/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "Constructor for 1000 elements take: "+ average + " microseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        fw.write( "Constructor for 1000 elements take: "+ average + " microseconds" + "\n" + "\n");
         average=0;
 
         // last() methods
@@ -111,8 +109,7 @@ public class Tester {
             average+=(t1 - t0)/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "last() for 100 elements take in average: "+ average + " nanoseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        fw.write( "last() for 100 elements take in average: "+ average + " nanoseconds" + "\n" + "\n");
         average=0;
 
         a = new CircleList("500.txt");
@@ -124,8 +121,7 @@ public class Tester {
             average+=(t1 - t0)/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "last() for 500 elements take in average: "+ average + " nanoseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        fw.write( "last() for 500 elements take in average: "+ average + " nanoseconds"+  "\n" + "\n");
         average=0;
 
         a = new CircleList("1000.txt");
@@ -137,8 +133,7 @@ public class Tester {
             average+=(t1 - t0)/100;
 
         }
-        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024;
-        fw.write( "last() for 1000 elements take in average: "+ average + " nanoseconds"+ " and " + usedBytes + " mb" + "\n" + "\n");
+        fw.write( "last() for 1000 elements take in average: "+ average + " nanoseconds"+ "\n" + "\n");
         average=0;
 
 //        // insert() and delete()
@@ -154,6 +149,8 @@ public class Tester {
 //            a.insert(name,gender);
 //            t1 = System.nanoTime();
 //            average1+=(t1 - t0)/100;
+//            System.out.println("SUCK MY DICK!!!");
+//            a.show();
 //
 //            t2 = System.nanoTime();
 //            a.delete(name);
@@ -161,20 +158,40 @@ public class Tester {
 //            average2+=(t1 - t0)/100;
 //        }
 //
-//        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 ;
-//        fw.write( "insert() take in average: "+ average1 + " nanoseconds"+ " and " + usedBytes + " kb" + "\n" + "\n");
-//        fw.write( "delete() take in average: "+ average2 + " nanoseconds"+ " and " + usedBytes + " kb" + "\n" + "\n");
+//        fw.write( "insert() take in average: "+ average1 + " nanoseconds"+  "\n" + "\n");
+//        fw.write( "delete() take in average: "+ average2 + " nanoseconds"+  "\n" + "\n");
+
+//        CircleList b,c,d;
+//        b = new CircleList("100.txt");
+//        c = new CircleList("500.txt");
+//        d = new CircleList("1000.txt");
+//        long t2, t3,t4,t5, average1 = 0, average2 = 0, average3 = 0;
+//
+//        for(int i = 0; i < 100; i++){
+//            t0 = System.nanoTime();
+//            b.show();
+//            t1 = System.nanoTime();
+//            average1+=(t1 - t0)/100;
+//
+//            t2 = System.nanoTime();
+//            c.show();
+//            t3 = System.nanoTime();
+//            average2+=(t3 - t2)/100;
+//
+//            t4 = System.nanoTime();
+//            d.show();
+//            t5 = System.nanoTime();
+//            average3+=(t5 - t4)/100;
+//        }
+//
+//        fw.write( "show() for 100 take in average: "+ average1/ 1000 + " microseconds"+  "\n" + "\n");
+//        fw.write( "show() for 500 take in average: "+ average2/ 1000 + " microseconds"+  "\n" + "\n");
+//        fw.write( "show() for 1000 take in average: "+ average3 / 1000  + " microseconds"+  "\n" + "\n");
 
         fw.close();
 
-        //        GENERATOR
-//        Tester.newData(Tester.specialStringArrayGenerator(1000));
-
-
-        // это байты, я чекнул
-//        System.out.println((int) (Runtime.getRuntime().maxMemory()/ Math.pow(2,20)) + " mb"); // количество свободной памяти, доступной JVM
-//        System.out.println((int) (Runtime.getRuntime().totalMemory()/ Math.pow(2,20)) + " mb");  // количество памяти, которое юзает JVM
-
+        //GENERATOR
+        //Tester.newData(Tester.specialStringArrayGenerator(1000));
 
     }
 }

@@ -145,13 +145,15 @@ public class CircleList {
 
         buff = this.head;
 
+
+
         for(int i = 0; i < size; i++){
-            System.out.printf(i+1 + ". " + format, buff.name + " ");
+            System.out.printf("%5d", i+1);
+            System.out.printf(". " + format, buff.name + " ");
             System.out.println((buff.gender ? "male" : "female"));
             buff = buff.next;
         }
     }
-
 
     public void insert(String name, String gender){
 
@@ -161,16 +163,21 @@ public class CircleList {
             this.head = buff;
         }
 
+        if(this.head.next == null){
+            this.head.next = buff;
+        }
+
         if(this.tail == null){
             this.tail = buff;
         }
 
         this.tail.next = buff;
         this.tail = buff;
+        buff.next = this.head;
         size++;
     }
 
-    public void insertForParticipant(Participant p){
+    public void insert(Participant p){
         Participant buff = new Participant(p);
 
         if(this.head == null){
@@ -189,6 +196,12 @@ public class CircleList {
 
     public void delete(String name){
 
+        if(this.size == 1){
+            this.head = null;
+            this.tail = null;
+            return;
+        }
+
         Participant buff = head;
         int c = 0;
 
@@ -204,6 +217,11 @@ public class CircleList {
 
         if(c == this.size -1){
             this.head = buff.next;
+        }
+
+        if(buff.next.name.equals(this.tail.name)){
+            buff.next = this.head;
+            this.tail = buff;
         }
 
         size--;
@@ -222,15 +240,37 @@ public class CircleList {
 
     }
 
-    public void Qsort(String name){
+    public void qSort(String name){
 
     }
 
-    public void Bsort(String name){
+    public void bubbleSort(String name){
 
+        Participant buff1 = this.head;
+        Participant buff2 = this.head.next;
+
+        for(int i = this.size-1; i > -1; i--){
+            for(int j = 0; j < i; j++){
+                if(buff1.compareTo(buff2) > 0){
+                    swap(buff1, buff2);
+                }
+                buff1 = buff1.next;
+                buff2 = buff2.next;
+            }
+            buff1 = this.head;
+            buff2 = this.head.next;
+        }
+        buff1 = this.tail;
+
+        while(!name.equals(buff1.next.name)){
+            buff1 = buff1.next;
+        }
+
+        this.tail = buff1;
+        this.head = buff1.next;
     }
 
-    private String[] CircleListToStringArray(CircleList l){
+    private String[] circleListToStringArray(CircleList l){
 
         String[] dataString = new String[l.size];
         Participant buff = l.head;
@@ -243,20 +283,28 @@ public class CircleList {
         return dataString;
     }
 
-    public void sortUsingStringArray(String name){
+    public void sortUsingStringArray(String name) {
 
-        String [] dataString = CircleListToStringArray(this);
+        String[] dataString = circleListToStringArray(this);
         Arrays.sort(dataString);
 
         String[] participantBuff = new String[2];
 
-        while (this.size != 0){
-            this.delete(this.head.name);
-        }
+        participantBuff = dataString[0].split(" ");
 
-        for(int i = 0; i < this.size; i++){
+        Participant p = new Participant(participantBuff[0], participantBuff[1].equals("male") ? true : false);
+
+        this.head = new Participant(p);
+        this.tail = new Participant(p);
+        this.size = 1;
+
+
+
+        for (int i = 1; i < dataString.length; i++) {
+
             participantBuff = dataString[i].split(" ");
             this.insert(participantBuff[0], participantBuff[1]);
+
         }
 
         Participant buff = this.tail;
@@ -264,6 +312,7 @@ public class CircleList {
         while(!name.equals(buff.next.name)){
             buff = buff.next;
         }
+
         this.tail = buff;
         this.head = buff.next;
     }
@@ -309,10 +358,15 @@ public class CircleList {
         return  size;
     }
 
-//    public static void main(String[] args) {
-//
-//
-//        CircleList a = new CircleList("100.txt"); //Для проверки конструктора
+    public static void main(String[] args) {
+
+        CircleList a = new CircleList("100.txt"); //Для проверки конструктора
+        a.show();
+
+        a.sortUsingStringArray("Hghpntymse");
+
+        a.show();
+
 //        a.swap(a.head, a.head.getNext());
 //        a.show();
 //        System.out.println();
@@ -337,5 +391,5 @@ public class CircleList {
 //
 //
 //
-//    }
+    }
 }
