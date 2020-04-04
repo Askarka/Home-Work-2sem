@@ -14,3 +14,5 @@ last() for 500 elements take in average: 7529 nanoseconds and 30 mb
 
 last() for 1000 elements take in average: 12573 nanoseconds and 30 mb
 
+2036
+

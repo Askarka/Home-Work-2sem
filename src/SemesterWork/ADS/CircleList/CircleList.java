@@ -222,27 +222,50 @@ public class CircleList {
 
     }
 
-    //ToDo чтобы принимал имя, а потом сдвигал бошку до этого имени
-    public CircleList sortWithAddArray(CircleList data){
-        int length = data.size();
-        String[] dataString = new String[length];
-        Participant buff = data.head;
+    public void Qsort(String name){
 
-        for(int  i = 0; i< length; i++){
+    }
+
+    public void Bsort(String name){
+
+    }
+
+    private String[] CircleListToStringArray(CircleList l){
+
+        String[] dataString = new String[l.size];
+        Participant buff = l.head;
+
+        for(int  i = 0; i< l.size; i++){
             dataString[i] = buff.getName() + ((buff.gender) ? " male" : " female");
             buff = buff.getNext();
         }
 
+        return dataString;
+    }
+
+    public void sortUsingStringArray(String name){
+
+        String [] dataString = CircleListToStringArray(this);
         Arrays.sort(dataString);
 
-        String[] partcipantBuff = new String[2];
-        CircleList newData = new CircleList();
+        String[] participantBuff = new String[2];
 
-        for(int i = 0; i < length; i++){
-            partcipantBuff = dataString[i].split(" ");
-            newData.insert(partcipantBuff[0], partcipantBuff[1]);
+        while (this.size != 0){
+            this.delete(this.head.name);
         }
-        return newData;
+
+        for(int i = 0; i < this.size; i++){
+            participantBuff = dataString[i].split(" ");
+            this.insert(participantBuff[0], participantBuff[1]);
+        }
+
+        Participant buff = this.tail;
+
+        while(!name.equals(buff.next.name)){
+            buff = buff.next;
+        }
+        this.tail = buff;
+        this.head = buff.next;
     }
 
     public Participant last(int k){
@@ -286,36 +309,33 @@ public class CircleList {
         return  size;
     }
 
-    public static void main(String[] args) {
-
-
-        CircleList a = new CircleList("100.txt"); //Для проверки конструктора
-        a.swap(a.head, a.head.getNext());
-        a.show();
-        System.out.println();
-        a.insert("a", "male");
-        a.delete("a");
-        a.show();
-
+//    public static void main(String[] args) {
+//
+//
+//        CircleList a = new CircleList("100.txt"); //Для проверки конструктора
+//        a.swap(a.head, a.head.getNext());
+//        a.show();
 //        System.out.println();
+//        a.insert("a", "male");
+//        a.delete("a");
+//        a.show();
 //
-//        CircleList b = new CircleList("test2.txt"); //Для проверки конструктора
-//        b.show();
+////        System.out.println();
+////
+////        CircleList b = new CircleList("test2.txt"); //Для проверки конструктора
+////        b.show();
+////
+////
+////        System.out.println();
+////
+////        CircleList[] mas = b.gender();
+////
+////        mas[0].show();
+////        System.out.println();
+////        mas[1].show();
 //
 //
-//        System.out.println();
 //
-//        CircleList[] mas = b.gender();
 //
-//        mas[0].show();
-//        System.out.println();
-//        mas[1].show();
-
-
-
-//        TODO доделать тесты всего оставшегося
-        //сделаны тесты : конструктора, show, insert (both), genderA.
-        //TODO Карим, можешь, пожалуйста, написать, что осталось протестироватьё
-        //TODO осталось сделать тесты:
-    }
+//    }
 }
