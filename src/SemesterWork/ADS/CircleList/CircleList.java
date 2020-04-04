@@ -12,8 +12,6 @@ public class CircleList {
 //    Т.е. можно перезаписывать старые ненужные элементы
 //    Вся идея кольцевых структур в экономии памяти
 
-    // TODo sort()
-
     private class Participant implements Comparable<Participant>{
         private String name;
         private boolean gender;
@@ -61,7 +59,7 @@ public class CircleList {
             if (this.getName().equals(otherP.getName())) {
                 if(this.getGender() == otherP.getGender()){
                     return 0;
-                } else if(this.getGender() == false) {
+                } else if(!this.getGender()) {
                     return -1;
                 } else {
                     return 1;
@@ -202,29 +200,70 @@ public class CircleList {
             return;
         }
 
-        Participant buff = head;
+        Participant buff1 = this.head;
+        Participant buff2 = this.head.next;
+
         int c = 0;
 
-        while(!name.equals(buff.next.name)){
-            if (c == this.size()) {
+        while(!name.equals(buff2.name)){
+
+            c++;
+            buff1 = buff2;
+            buff2 = buff2.next;
+
+            if(c >= this.size){
                 throw new NoSuchElementException();
             }
-            c++;
-            buff = buff.next;
         }
-
-        buff.setNext(buff.next.next);
-
-        if(c == this.size -1){
-            this.head = buff.next;
-        }
-
-        if(buff.next.name.equals(this.tail.name)){
-            buff.next = this.head;
-            this.tail = buff;
-        }
-
         size--;
+
+        if(buff2.name.equals(this.head.name)){
+            this.head = this.head.next;
+            this.tail.next = this.head;
+            return;
+        }
+
+        if(buff2.name.equals(this.tail.name)){
+            this.tail = buff1;
+            this.tail.next = this.head;
+            return;
+        }
+
+        buff1.next = buff2.next;
+
+
+//        Participant buff = this.tail;
+//        int c = 0;
+//
+//        while(!name.equals(buff.next.name)){
+//            System.out.println(c);
+//            if (c == this.size()) {
+//                throw new NoSuchElementException();
+//            }
+//            c++;
+//            buff = buff.next;
+//        }
+//
+//        buff.setNext(buff.next.next);
+//
+//        if(c == this.size -1){
+//            this.head = buff.next;
+//        }
+//
+//        if(buff.next.name.equals(this.tail.name)){
+//            buff.next = this.head;
+//            this.tail = buff;
+//        }
+//
+//        size--;
+    }
+
+    public void sort(String name){
+        if(this.size <=75){
+            this.bubbleSort(name);
+        }else{
+            this.sortUsingStringArray(name);
+        }
     }
 
     public void swap(Participant  p1, Participant p2){
@@ -237,10 +276,6 @@ public class CircleList {
         p1.gender = p2.gender;
         p2.name = buff.name;
         p2.gender = buff.gender;
-
-    }
-
-    public void qSort(String name){
 
     }
 
@@ -292,7 +327,7 @@ public class CircleList {
 
         participantBuff = dataString[0].split(" ");
 
-        Participant p = new Participant(participantBuff[0], participantBuff[1].equals("male") ? true : false);
+        Participant p = new Participant(participantBuff[0], participantBuff[1].equals("male"));
 
         this.head = new Participant(p);
         this.tail = new Participant(p);
@@ -358,15 +393,15 @@ public class CircleList {
         return  size;
     }
 
-    public static void main(String[] args) {
-
-        CircleList a = new CircleList("100.txt"); //Для проверки конструктора
-        a.show();
-
-        a.sortUsingStringArray("Hghpntymse");
-
-        a.show();
-
+//    public static void main(String[] args) {
+//
+//        CircleList a = new CircleList("100.txt"); //Для проверки sortUsing...
+//        a.show();
+//
+//        a.sortUsingStringArray("Hghpntymse");
+//
+//        a.show();
+//
 //        a.swap(a.head, a.head.getNext());
 //        a.show();
 //        System.out.println();
@@ -391,5 +426,5 @@ public class CircleList {
 //
 //
 //
-    }
+//    }
 }
