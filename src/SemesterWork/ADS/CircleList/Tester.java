@@ -35,8 +35,6 @@ public class Tester {
     }
 
     public static void main(String[] args) throws IOException {
-        
-        public static void main(String[] args) throws IOException {
 
         //GENERATOR
 //        Tester.newData(Tester.specialStringArrayGenerator(100));
@@ -276,10 +274,15 @@ public class Tester {
         // Memory measurement:
 
 
-        fw.close();
+        //fw.close();
 
-        //GENERATOR
-        //Tester.newData(Tester.specialStringArrayGenerator(1000));
+        long usedBytes;
+        usedBytes = Runtime.getRuntime().maxMemory() / 1024 / 1024;
+        System.out.println(usedBytes + " mb" + "\n");
 
+        usedBytes = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() ;
+        CircleList aa = new CircleList("1000.txt");
+        usedBytes = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - usedBytes) / 1024;
+        System.out.println(usedBytes + " kb");
     }
 }
