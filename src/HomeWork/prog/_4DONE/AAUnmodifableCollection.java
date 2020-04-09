@@ -1,4 +1,4 @@
-package HomeWork.prog._4;
+package HomeWork.prog._4DONE;
 
 import java.util.AbstractCollection;
 import java.util.ArrayList;
