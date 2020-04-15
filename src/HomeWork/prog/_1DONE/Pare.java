@@ -35,9 +35,9 @@ public class Pare<T1, T2> {
         return obj;
     }
 
-    public static void main(String[] args) {
-        Pare<Integer, String>  pare = new Pare<>(256, "Lol");
-        System.out.println(pare.getValue1());
-        System.out.println(pare.getValue2());
-    }
+//    public static void main(String[] args) {
+//        Pare<Integer, String>  pare = new Pare<>(256, "Lol");
+//        System.out.println(pare.getValue1());
+//        System.out.println(pare.getValue2());
+//    }
 }

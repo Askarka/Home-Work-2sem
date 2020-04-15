@@ -181,13 +181,13 @@ public class KarimLinkedList<T> {
     }
 
     //Testing
-    public static void main(String[] args) {
-        KarimLinkedList a = new KarimLinkedList(10);
-        a.addFirst(1);
-        a.addFirst(51984);
-        System.out.println(a.head.value + "\n");
-        a.removeByIndex(1);
-        System.out.println(a.get(2));
-    }
+//    public static void main(String[] args) {
+//        KarimLinkedList a = new KarimLinkedList(10);
+//        a.addFirst(1);
+//        a.addFirst(51984);
+//        System.out.println(a.head.value + "\n");
+//        a.removeByIndex(1);
+//        System.out.println(a.get(2));
+//    }
 
 }
