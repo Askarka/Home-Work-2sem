@@ -34,10 +34,4 @@ public class Pare<T1, T2> {
         Pare obj = new Pare<T2, T1> (this.obj2 , this.obj1);
         return obj;
     }
-
-    public static void main(String[] args) {
-        Pare<Integer, String>  pare = new Pare<>(256, "Lol");
-        System.out.println(pare.getValue1());
-        System.out.println(pare.getValue2());
-    }
 }
