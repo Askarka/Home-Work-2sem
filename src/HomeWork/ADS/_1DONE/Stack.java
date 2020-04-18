@@ -75,13 +75,13 @@ public class Stack<T> {
         }
     }
 
-    public static void main(String[] args) {
-        Stack st1 = new Stack(100);
-        st1.add(123);
-        st1.add(228);
-        st1.add(1337);
-        System.out.println(st1.pop());
-        System.out.println(st1.size());
-        st1.showAll();
-    }
+//    public static void main(String[] args) {
+//        Stack st1 = new Stack(100);
+//        st1.add(123);
+//        st1.add(228);
+//        st1.add(1337);
+//        System.out.println(st1.pop());
+//        System.out.println(st1.size());
+//        st1.showAll();
+//    }
 }

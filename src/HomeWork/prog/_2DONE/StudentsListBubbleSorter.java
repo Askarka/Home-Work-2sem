@@ -15,14 +15,14 @@ public class StudentsListBubbleSorter {
         }
     }
 
-    public static void main(String[] args) {
-        UniversalEndlessArray<Student> a = new UniversalEndlessArray<Student>(10);
-        for(int i = 0; i < 10; i++){
-            a.add(new Student(i % 3, 900 + (i % 4), "Ivanich" + i*4));
-        }
-        System.out.println(a.showElements());
-        courseBubbleSort(a);
-        System.out.println(a.showElements());
-
-    }
+//    public static void main(String[] args) {
+//        UniversalEndlessArray<Student> a = new UniversalEndlessArray<Student>(10);
+//        for(int i = 0; i < 10; i++){
+//            a.add(new Student(i % 3, 900 + (i % 4), "Ivanich" + i*4));
+//        }
+//        System.out.println(a.showElements());
+//        courseBubbleSort(a);
+//        System.out.println(a.showElements());
+//
+//    }
 }

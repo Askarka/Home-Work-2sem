@@ -1,13 +1,13 @@
 package HomeWork.general;
 
 public class Fraction {
-    public static void main(String[] args) {
-        Fraction f1 = new Fraction(1, 3);
-        Fraction f2 = new Fraction(-1, -3);
-        Fraction f3 = new Fraction(0, -3);
-        System.out.println(f1.multiply(f2).toString());
-        System.out.println(f1.divide(f3));
-    }
+//    public static void main(String[] args) {
+//        Fraction f1 = new Fraction(1, 3);
+//        Fraction f2 = new Fraction(-1, -3);
+//        Fraction f3 = new Fraction(0, -3);
+//        System.out.println(f1.multiply(f2).toString());
+//        System.out.println(f1.divide(f3));
+//    }
 
     private final int nominator;
     private final int denominator;
