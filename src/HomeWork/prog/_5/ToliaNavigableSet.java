@@ -28,7 +28,7 @@
 //     * @param direct 1, with direct order, -1 with reverse order
 //     */
 //    public ToliaNavigableSet(Comparator<? super T> comparator, int direct){
-//        this.array = new EndlessArray<T>();
+//        this.array = new EndlessA rray<T>();
 //        size = 0;
 //        direct = 1;
 //        this.comparator = comparator;

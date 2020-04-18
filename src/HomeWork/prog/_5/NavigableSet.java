@@ -3,10 +3,6 @@ package HomeWork.prog._5;
 import HomeWork.prog._3DONE.UniversalEndlessArrayIterator;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
-
 
 public class NavigableSet<T> extends AbstractCollection<T> implements java.util.NavigableSet<T> {
 
@@ -15,45 +11,195 @@ public class NavigableSet<T> extends AbstractCollection<T> implements java.util.
     private int order = 1;
     private Comparator<? super T> comparator;
 
+    public NavigableSet(T[] array, int size, int order, Comparator<? super T> comparator) {
+        this.array = array;
+        this.size = size;
+        this.order = order;
+        this.comparator = comparator;
+    }
+
+    public NavigableSet(Comparator<? super T> comparator, int order) {
+        this.comparator = comparator;
+        this.order = order;
+    }
+
 
     @Override
     public T lower(T t) {
+        try{
+            int k = -1;
+            for(int i = 0; i < size; i++){
+                if(t.equals(array[i])){
+                    k = i;
+                    break;
+                }
+            }
+            if(k == -1){
+                return null;
+            }else{
+                if(order == 1){
+                    if(k == 0){
+                        return null;
+                    }else{
+                        return  array[k-1];
+                    }
+                }else{
+                    if(k == size - 1){
+                        return null;
+                    }else{
+                        return array[k+1];
+                    }
+                }
+            }
+        }catch(ClassCastException | NullPointerException e){
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public T floor(T t) {
-        return null;
+            try{
+                int k = -1;
+                for(int i = 0; i < size; i++){
+                    if(t.equals(array[i])){
+                        k = i;
+                        break;
+                    }
+                }
+                if(k == -1){
+                    return null;
+                }else{
+                    if(order == 1){
+                        if(k == 0){
+                            return array[k];
+                        }else{
+                            return  array[k-1];
+                        }
+                    }else{
+                        if(k == size - 1){
+                            return array[size];
+                        }else{
+                            return array[k+1];
+                        }
+                    }
+                }
+            }catch(ClassCastException | NullPointerException e){
+                e.printStackTrace();
+            }
+            return null;
     }
 
     @Override
     public T ceiling(T t) {
+        try{
+            int k = -1;
+            for(int i = 0; i < size; i++){
+                if(t.equals(array[i])){
+                    k = i;
+                    break;
+                }
+            }
+            if(k == -1){
+                return null;
+            }else{
+                if(order == 1){
+                    if(k == size - 1){
+                        return array[k];
+                    }else{
+                        return  array[k+1];
+                    }
+                }else{
+                    if(k == 0){
+                        return array[k];
+                    }else{
+                        return array[k-1];
+                    }
+                }
+            }
+        }catch(ClassCastException | NullPointerException e){
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public T higher(T t) {
+        try{
+            int k = -1;
+            for(int i = 0; i < size; i++){
+                if(t.equals(array[i])){
+                    k = i;
+                    break;
+                }
+            }
+            if(k == -1){
+                return null;
+            }else{
+                if(order == 1){
+                    if(k == size - 1){
+                        return null;
+                    }else{
+                        return  array[k+1];
+                    }
+                }else{
+                    if(k == 0){
+                        return null;
+                    }else{
+                        return array[k-1];
+                    }
+                }
+            }
+        }catch(ClassCastException | NullPointerException e){
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public T pollFirst() {
-        return null;
+        if(size == 0){
+            return null;
+        }else{
+            T k = array[order == 1 ? 0 : size - 1];
+            if (size - 1 >= 0) System.arraycopy(array, 1, array, 0, size - 1);
+            return k;
+        }
     }
 
     @Override
     public T pollLast() {
-        return null;
+        if(size == 0){
+            return null;
+        }else{
+            T k = array[order == 1 ? size - 1 : 0];
+            array[size - 1] = null;
+            size--;
+            return k;
+        }
     }
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new UniversalEndlessArrayIterator<T>(array);
     }
 
     @Override
     public java.util.NavigableSet<T> descendingSet() {
-        return null;
+        NavigableSet<T> reverseSet = new NavigableSet<>(comparator, order * -1);
+
+
+
+
+
+//        EndlessArray<T> n = new EndlessArray<>();
+//        for(T e : array){
+//            n.add(e, 0);
+//        }
+//        ToliaNavigableSet<T> reverseSet = new ToliaNavigableSet<>(comparator, order * -1);
+//        reverseSet.array = array;
+//        reverseSet.size = size;
+//        return reverseSet;
     }
 
     @Override
@@ -108,6 +254,6 @@ public class NavigableSet<T> extends AbstractCollection<T> implements java.util.
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 }

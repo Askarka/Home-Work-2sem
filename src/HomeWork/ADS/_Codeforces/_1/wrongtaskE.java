@@ -3,7 +3,7 @@ package HomeWork.ADS._Codeforces._1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class taskE {
+public class wrongtaskE {
     static class Pair implements Comparable<Pair>{
         double r;
         int k;
