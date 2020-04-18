@@ -187,23 +187,21 @@ public class NavigableSet<T> extends AbstractCollection<T> implements java.util.
     @Override
     public java.util.NavigableSet<T> descendingSet() {
         NavigableSet<T> reverseSet = new NavigableSet<>(comparator, order * -1);
-
-
-
-
-
-//        EndlessArray<T> n = new EndlessArray<>();
-//        for(T e : array){
-//            n.add(e, 0);
-//        }
-//        ToliaNavigableSet<T> reverseSet = new ToliaNavigableSet<>(comparator, order * -1);
-//        reverseSet.array = array;
-//        reverseSet.size = size;
-//        return reverseSet;
+        T buff;
+        T[] rar = Arrays.copyOf(array, size);
+        for(int i = 0; i < size; i++){
+            buff = rar[i];
+            rar[i] = rar[size - 1 - i];
+            rar[size - 1 - i] = buff;
+        }
+        reverseSet.array = rar;
+        reverseSet.size = size;
+        return reverseSet;
     }
 
     @Override
     public Iterator<T> descendingIterator() {
+            
         return null;
     }
 
