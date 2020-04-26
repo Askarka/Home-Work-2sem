@@ -11,6 +11,10 @@ public class Set<T> {
         this.size = 0;
     }
 
+    public Set() {
+        new Set(0);
+    }
+
     public void add(T e){
         if(!this.has(e)){
             this.checkCap(this);
