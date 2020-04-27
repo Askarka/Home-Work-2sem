@@ -5,69 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bc0c34a-3e63-473c-912f-63aac44d041f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Askar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Home Work 2sem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_1DONE/Queye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_1DONE/Queye.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_1DONE/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_1DONE/Stack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_1DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_1DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/InterruptableBubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/InterruptableBubbleSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/MultiSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/MultiSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/Set.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_2DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_3/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_3/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_3/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_3/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskА.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskА.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskС.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/taskС.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/wrongtaskA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/wrongtaskA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/wrongtaskE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/ADS/_Codeforces/_1/wrongtaskE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/general/ArabToRomNumConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/general/ArabToRomNumConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/general/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/general/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/general/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/general/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_10/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_10/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_11/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_11/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_12/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_12/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_13/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_13/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_14/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_14/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_15/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_15/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Complex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Complex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/ComputerGames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/ComputerGames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Pare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Pare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/UniversalEndlessArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_1DONE/UniversalEndlessArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/CourseStudentComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/CourseStudentComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/GroupStudentComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/GroupStudentComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/NameStudentComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/NameStudentComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/Number.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/StudentsListBubbleSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/StudentsListBubbleSorter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_2DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/FunnyIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/FunnyIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/IterableUniversalEndlessArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/IterableUniversalEndlessArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/RandomNumbersIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/RandomNumbersIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/StrArrEvIt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/StrArrEvIt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/StringArrayIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/StringArrayIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/UniversalEndlessArrayIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_3DONE/UniversalEndlessArrayIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_4DONE/ModifiableCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_4DONE/ModifiableCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_4DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_4DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_4DONE/UnmodifiableCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_4DONE/UnmodifiableCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_5DONE/NavigableSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_5DONE/NavigableSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_5DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_5DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_5DONE/UniversalEndlessArrayReverseIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_5DONE/UniversalEndlessArrayReverseIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_6DONE/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_6DONE/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_6DONE/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_6DONE/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_8/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_8/Technical task" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeWork/prog/_9/Technical task" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeWork/prog/_9/Technical task" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,6 +321,7 @@
       <workItem from="1588012155028" duration="114000" />
       <workItem from="1588012280708" duration="4000" />
       <workItem from="1588012405348" duration="186000" />
+      <workItem from="1588012622528" duration="418000" />
     </task>
     <task id="LOCAL-00001" summary="Add TODOs to CircleList3">
       <created>1584978867552</created>
@@ -516,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588010503855</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="after my project crashed I've decided to delete gitignore">
+      <created>1588012706681</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1588012706681</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +488,8 @@
     <MESSAGE value="homework added" />
     <MESSAGE value=".gitignore added" />
     <MESSAGE value=".gitignore changed after trash" />
-    <option name="LAST_COMMIT_MESSAGE" value=".gitignore changed after trash" />
+    <MESSAGE value="after my project crashed I've decided to delete gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="after my project crashed I've decided to delete gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="94" key="#Inspections" timestamp="1587198357225">
@@ -593,11 +541,11 @@
     </state>
     <state x="645" y="-874" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864/0.-1080.1920.1080@0.-1080.1920.1080" timestamp="1587302414161" />
     <state x="516" y="165" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864/0.-1080.1920.1080@0.0.1536.864" timestamp="1587276131945" />
-    <state x="379" y="26" key="CommitChangelistDialog2" timestamp="1588010503260">
+    <state x="379" y="26" key="CommitChangelistDialog2" timestamp="1588012705793">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="474" y="-1047" key="CommitChangelistDialog2/0.0.1536.864/0.-1080.1920.1080@0.-1080.1920.1080" timestamp="1587303361789" />
-    <state x="379" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1588010503260" />
+    <state x="379" y="26" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1588012705793" />
     <state x="93" y="93" width="1350" height="678" key="DiffContextDialog" timestamp="1588009820887">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -681,11 +629,11 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="524" y="137" key="VCS.ChangeListViewerDialog/0.0.1536.864@0.0.1536.864" timestamp="1588009822179" />
-    <state x="360" y="165" key="Vcs.Push.Dialog.v2" timestamp="1588010511489">
+    <state x="360" y="165" key="Vcs.Push.Dialog.v2" timestamp="1588012709577">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="450" y="-874" key="Vcs.Push.Dialog.v2/0.0.1536.864/0.-1080.1920.1080@0.-1080.1920.1080" timestamp="1587303366654" />
-    <state x="360" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1588010511489" />
+    <state x="360" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1588012709577" />
     <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1588010394820">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -760,7 +708,7 @@
     <state x="425" y="197" width="672" height="677" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1587996798708" />
     <state x="531" y="246" width="840" height="847" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1587593732788" />
     <state x="531" y="246" width="840" height="847" key="run.anything.popup/0.1080.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1587368385950" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1588009229344">
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1588013021952">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="94" y="-2" key="search.everywhere.popup.inPresentationMode" timestamp="1582542647703">
@@ -769,6 +717,6 @@
     <state x="94" y="-2" key="search.everywhere.popup.inPresentationMode/0.0.1536.864@0.0.1536.864" timestamp="1582542647703" />
     <state x="539" y="-854" width="840" height="848" key="search.everywhere.popup/0.0.1536.864/0.-1080.1920.1080@0.-1080.1920.1080" timestamp="1587248855751" />
     <state x="431" y="181" width="672" height="679" key="search.everywhere.popup/0.0.1536.864/0.-1080.1920.1080@0.0.1536.864" timestamp="1587276235439" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1588009229344" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1588013021952" />
   </component>
 </project>
