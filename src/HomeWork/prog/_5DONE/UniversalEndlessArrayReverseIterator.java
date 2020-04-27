@@ -1,6 +1,8 @@
 package HomeWork.prog._5DONE;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class UniversalEndlessArrayReverseIterator<T> implements Iterator<T> {
 
@@ -21,6 +23,30 @@ public class UniversalEndlessArrayReverseIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         return data[cursor--];
+    }
+
+    @Override
+    public String toString() {
+        return "UniversalEndlessArrayReverseIterator{" +
+                "data=" + Arrays.toString(data) +
+                ", cursor=" + cursor +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UniversalEndlessArrayReverseIterator<?> that = (UniversalEndlessArrayReverseIterator<?>) o;
+        return cursor == that.cursor &&
+                Arrays.equals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(cursor);
+        result = 31 * result + Arrays.hashCode(data);
+        return result;
     }
 
     @Override

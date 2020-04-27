@@ -3,7 +3,9 @@ package HomeWork.prog._4DONE;
 import HomeWork.prog._3DONE.UniversalEndlessArrayIterator;
 
 import java.util.AbstractCollection;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class UnmodifiableCollection<T> extends AbstractCollection<T> {
     private T[] array;
@@ -23,11 +25,31 @@ public class UnmodifiableCollection<T> extends AbstractCollection<T> {
         }
         this.size = c.size();
     }
-    //TODO «Деструктивные» методы, содержащиеся в этом интерфейсе, то есть методы, которые изменяют коллекцию, с которой они работают,
-// указываются для выброса исключения UnsupportedOperationException, если эта коллекция не поддерживает операцию.
-// В этом случае эти методы могут, но не обязаны, генерировать исключение UnsupportedOperationException,
-// если вызов не окажет влияния на коллекцию. Например, вызов addAll(Collection)метода для неизменяемой коллекции может,
-// но не обязательно, вызывать исключение, если добавляемая коллекция пуста.
+
+    @Override
+    public String toString() {
+        return "UnmodifiableCollection{" +
+                "array=" + Arrays.toString(array) +
+                ", size=" + size +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UnmodifiableCollection<?> that = (UnmodifiableCollection<?>) o;
+        return size == that.size &&
+                Arrays.equals(array, that.array);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size);
+        result = 31 * result + Arrays.hashCode(array);
+        return result;
+    }
+
     @Override
     public Iterator<T> iterator()  {
         return new UniversalEndlessArrayIterator<T>(array);

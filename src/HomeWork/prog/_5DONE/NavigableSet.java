@@ -424,6 +424,34 @@ public class NavigableSet<T> extends AbstractCollection<T> implements java.util.
         return array[0];
     }
 
+    @Override
+    public String toString() {
+        return "NavigableSet{" +
+                "array=" + Arrays.toString(array) +
+                ", size=" + size +
+                ", order=" + order +
+                ", comparator=" + comparator +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NavigableSet<?> that = (NavigableSet<?>) o;
+        return size == that.size &&
+                order == that.order &&
+                Arrays.equals(array, that.array) &&
+                Objects.equals(comparator, that.comparator);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size, order, comparator);
+        result = 31 * result + Arrays.hashCode(array);
+        return result;
+    }
+
     /**<P>Returns the last (highest) element currently in this set.
      </P>
      * @return the last (highest) element currently in this set.

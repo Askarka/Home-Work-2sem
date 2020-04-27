@@ -1,7 +1,6 @@
-package HomeWork.prog._7;
+package HomeWork.prog._7DONE;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
 import java.util.Random;
 import java.util.Scanner;
 

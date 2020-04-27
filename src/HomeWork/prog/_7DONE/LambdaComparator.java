@@ -1,4 +1,4 @@
-package HomeWork.prog._7;
+package HomeWork.prog._7DONE;
 
 import HomeWork.prog._1DONE.Pare;
 

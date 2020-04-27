@@ -3,7 +3,9 @@ package HomeWork.prog._4DONE;
 import HomeWork.prog._3DONE.UniversalEndlessArrayIterator;
 
 import java.util.AbstractCollection;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class ModifiableCollection<T> extends AbstractCollection<T> {
     private T[] array;
@@ -53,6 +55,30 @@ public class ModifiableCollection<T> extends AbstractCollection<T> {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "ModifiableCollection{" +
+                "array=" + Arrays.toString(array) +
+                ", size=" + size +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ModifiableCollection<?> that = (ModifiableCollection<?>) o;
+        return size == that.size &&
+                Arrays.equals(array, that.array);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size);
+        result = 31 * result + Arrays.hashCode(array);
+        return result;
     }
 
     public boolean add(T o){

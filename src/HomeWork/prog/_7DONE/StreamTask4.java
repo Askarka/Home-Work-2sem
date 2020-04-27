@@ -1,11 +1,10 @@
-package HomeWork.prog._7;
-
+package HomeWork.prog._7DONE;
 
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class StreamTask2 {
+public class StreamTask4 {
     public static void main(String[] args) {
 
         Set<String> set = new HashSet<>();
@@ -14,7 +13,7 @@ public class StreamTask2 {
 
         StringBuilder appender = new StringBuilder();
         for(int i = 0; i < 10; i++){
-            for(int j = 0; j < rnd.nextInt(15) + 5; j++){
+            for(int j = 0; j < rnd.nextInt(15); j++){
                 appender.append(symbols.charAt(rnd.nextInt(52)));
             }
             set.add(appender.toString());
@@ -24,23 +23,9 @@ public class StreamTask2 {
         set.parallelStream().forEach(System.out::println);
         System.out.println("^ before filter");
 
-
-        String vowels = "AEIOUYaeiouy";
-        int mainCounter = 0;
-
-        mainCounter = (int) set.parallelStream().filter(i -> {
-            int counterOfVowel = 0;
-
-            for(int j = 0; j < i.length(); j++){
-                if(vowels.contains((String.valueOf(i.charAt(j))))){
-                    counterOfVowel++;
-                }
-            }
-            if(counterOfVowel > 3){
-                return true;
-            }
-            return false;
-        }).count();
+        int mainCounter = set.parallelStream().filter(i -> {
+            return i.length() > 5;
+        }).mapToInt(String::length).sum();
 
         System.out.println(mainCounter);
 
